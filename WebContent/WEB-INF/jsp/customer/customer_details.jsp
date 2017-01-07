@@ -19,7 +19,24 @@
 		<div class="row cl">
 			<label class="form-label col-xs-2">Customer Name：</label>
 			<div class="formControls col-xs-4">
-				<input type="text" class="input-text" placeholder="Customer Name" name="name" id="CustomerName" datatype="*3-50" nullmsg="Customer is not empty" ajaxurl="checkDuplicateName.htm">
+				<input type="hidden" id="id" name="id" value="${customer.id}">
+				<input type="text" class="input-text" placeholder="Customer Name" name="name" id="CustomerName" 
+				datatype="*3-50" nullmsg="Customer is not empty" ajaxurl="checkDuplicateName.htm" value="${customer.name}">
+			</div>
+		</div>
+		<h4>Account Information</h4>
+		<div class="line"></div>
+		<p/>
+		<div class="row cl">
+			<label class="form-label col-xs-2">Terms：</label>
+			<div class="formControls col-xs-2">
+				<input type="text" class="input-text" placeholder="C.O.D or 7 or 30" name="term" id="term" 
+				datatype="*1-5" ignore="ignore" value="${customer.terms}">
+			</div>
+			<label class="form-label col-xs-2">Account Code：</label>
+			<div class="formControls col-xs-4">
+				<input type="text" class="input-text" placeholder="Account Code eg. 1000" name="accountCode" id="accountCode"
+				 datatype="n4-4" ignore="ignore" value="${customer.accountCode}">
 			</div>
 		</div>
 		<h4>Billing Information</h4>
@@ -28,7 +45,8 @@
 		<div class="row cl">
 			<label class="form-label col-xs-2">Billing Attention：</label>
 			<div class="formControls col-xs-2">
-				<input type="text" class="input-text" placeholder="Billing Attention" name="billContact.billAttention" id="billAttention" datatype="*3-50" ignore="ignore">
+				<input type="text" class="input-text" placeholder="Billing Attention" name="billContact.billAttention" id="billAttention" 
+				datatype="*3-50" ignore="ignore" value="${customer.billContact.billAttention}">
 			</div>
 			<label class="form-label col-xs-2">Billing Email：</label>
 			<div class="formControls col-xs-4">

@@ -11,4 +11,7 @@ public class Customer {
 	
 	private CustomerBillContact billContact;
 	private CustomerDeliveryContact deliveryContact;
+	
+	private String terms;
+	private int accountCode;
 }

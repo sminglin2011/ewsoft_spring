@@ -15,7 +15,7 @@
 </head>
 <body>
 	<div class="page-container">
-		<form action="" method="post" class="form form-horizontal responsive" id="form-deliveryContact">
+		<form action="saveCustomerDeliveryContact.htm" method="post" class="form form-horizontal responsive" id="form-deliveryContact">
 		<div class="row cl">
 			<label class="form-label col-xs-6">Customer Name：${model.customer.name}</label>
 			<div class="formControls col-xs-1">
@@ -30,45 +30,53 @@
 		<div class="row cl">
 			<label class="form-label col-xs-3">Delivery Attention：</label>
 			<div class="formControls col-xs-3">
-				<input type="text" class="input-text" placeholder="Delivery Attention" name="deliveryContact.deliveryAttention" id="deliveryAttention" datatype="*3-50" ignore="ignore">
+				<input type="text" class="input-text" placeholder="Delivery Attention" name="deliveryAttention" 
+				id="deliveryAttention" datatype="*3-18" nullmsg="Not Empty" sucmsg="Success" errormsg="3-18 Characters">
 			</div>
 			<label class="form-label col-xs-3">Delivery Email：</label>
 			<div class="formControls col-xs-3">
-				<input type="text" class="input-text" placeholder="Delivery Email" name="deliveryContact.deliveryEmail" id="deliveryEmail" datatype="e" ignore="ignore">
+				<input type="text" class="input-text" placeholder="Delivery Email" name="deliveryEmail" 
+				id="deliveryEmail" datatype="e" ignore="ignore" sucmsg="Success" errormsg="Email Address Incorect">
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-3">Delivery Mobile：</label>
 			<div class="formControls col-xs-3">
-				<input type="text" class="input-text" placeholder="Delivery Mobile" name="deliveryContact.deliveryMobile" id="deliveryMobile" datatype="n" ignore="ignore">
+				<input type="text" class="input-text" placeholder="Delivery Mobile" name="deliveryMobile" 
+				id="deliveryMobile" datatype="n8-8" ignore="ignore" sucmsg="Success" errormsg="eg.66668888">
 			</div>
 			<label class="form-label col-xs-3">Delivery Telephone：</label>
 			<div class="formControls col-xs-3">
-				<input type="text" class="input-text" placeholder="Delivery Telephone" name="deliveryContact.deliveryTelephone" id="deliveryTelephone" datatype="n" ignore="ignore">
+				<input type="text" class="input-text" placeholder="Delivery Telephone" name="deliveryTelephone" 
+				id="deliveryTelephone" datatype="n8-8" ignore="ignore" sucmsg="Success" errormsg="eg.66668888">
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-3">Delivery PostCode：</label>
 			<div class="formControls col-xs-3">
-				<input type="text" class="input-text" placeholder="Delivery PostCode" name="deliveryContact.deliveryPostcode" id="deliveryPostcode" datatype="n6-6" ignore="ignore">
+				<input type="text" class="input-text" placeholder="Delivery PostCode" name="deliveryPostcode" 
+				id="deliveryPostcode" datatype="n6-6" nullmsg="eg.600116" sucmsg="Success" errormsg="3-18 Characters">
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-3">Delivery Address：</label>
 			<div class="formControls col-xs-6">
-				<input type="text" class="input-text" placeholder="Delivery Address1" name="deliveryContact.deliveryAddress1" id="deliveryAddress1" datatype="*3-50" ignore="ignore">
+				<input type="text" class="input-text" placeholder="Delivery Address1" name="deliveryAddress1" 
+				id="deliveryAddress1" datatype="*3-50" ignore="ignore" sucmsg="Success" errormsg="3-50 Any Characters">
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-3"></label>
 			<div class="formControls col-xs-6">
-				<input type="text" class="input-text" placeholder="Delivery Address2" name="deliveryContact.deliveryAddress2" id="deliveryAddress2">
+				<input type="text" class="input-text" placeholder="Delivery Address2" name="deliveryAddress2" 
+				id="deliveryAddress2">
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-3"></label>
 			<div class="formControls col-xs-6">
-				<input type="text" class="input-text" placeholder="Delivery Address3" name="deliveryContact.deliveryAddress3" id="deliveryAddress3">
+				<input type="text" class="input-text" placeholder="Delivery Address3" name="deliveryAddress3" 
+				id="deliveryAddress3">
 			</div>
 		</div>
 		<div class="row cl">
@@ -89,12 +97,9 @@ $(function(){
 		tiptype:3,
 		ajaxPost:true,
 		callback:function(data){
-			//form[0].submit(); 直接提交表单
-			//ajaxPost(flag,sync,url); flag = true 跳过验证直接提交表单， sync = true 同步提交
-			//layer.msg(data.status);
-			/* var index = parent.layer.getFrameIndex(window.name);
+			var index = parent.layer.getFrameIndex(window.name);
 			parent.location.replace(parent.location.href)
-			parent.layer.close(index); */
+			parent.layer.close(index);
 		}
 	});
 });

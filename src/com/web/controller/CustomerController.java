@@ -1,6 +1,5 @@
 package com.web.controller;
 
-import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,24 +9,16 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
 
-import com.sun.swing.internal.plaf.metal.resources.metal;
-import com.web.Dao.CustomerDao;
 import com.web.domain.Customer;
 import com.web.domain.CustomerBillContact;
-import com.web.domain.User;
+import com.web.domain.CustomerDeliveryContact;
 import com.web.exception.ParameterException;
 import com.web.service.CustomerService;
-
-import net.sf.json.JSON;
-import net.sf.json.JSONObject;
 
 @Controller
 public class CustomerController { //extends BaseController
@@ -135,6 +126,18 @@ public class CustomerController { //extends BaseController
 		log.debug(" <save bill contact + ????" + billContact);
 		try {
 			customerService.saveCustomerBillContact(billContact);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "shuiming";
+	}
+	@ResponseBody
+	@RequestMapping(value="/saveCustomerDeliveryContact.htm") //, consumes = "application/json"
+	public String saveCustomerDeliveryContact(ModelMap model,CustomerDeliveryContact deliveryContact) {
+		log.debug("model  =" + model);
+		log.debug(" <save delivery contact + ????" + deliveryContact);
+		try {
+			customerService.saveCustomerDeliveryContact(deliveryContact);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
